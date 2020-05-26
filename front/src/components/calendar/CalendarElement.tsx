@@ -4,11 +4,7 @@ import dayjs from "dayjs";
 import { Typography } from "@material-ui/core";
 
 import { useStyles } from "./styles.js";
-import {
-  isSameDay,
-  isSameMonth,
-  isFirstDay,
-} from "../../services/calendar.tsx";
+import { isSameDay, isSameMonth, isFirstDay } from "../../services/calendar";
 
 type Props = {
   day: dayjs.Dayjs;
