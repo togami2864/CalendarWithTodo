@@ -1,6 +1,5 @@
 import React from "react";
 import { Paper, makeStyles } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/styles";
 
 export const useStyles = makeStyles(() => ({
   container: {
@@ -14,5 +13,21 @@ export const useStyles = makeStyles(() => ({
   grid: {
     borderLeft: "1px solid #ccc",
     borderTop: "1px solid #ccc",
+  },
+  days: {
+    borderRight: "1px solid #ccc",
+    paddingTop: "1px solid #ccc",
+  },
+  date: {
+    padding: "5px 0",
+    height: "24px",
+  },
+  today: {
+    display: "inline-block",
+    lineHeight: "24px",
+    width: "24px",
+    backgroundColor: "#1a73e8",
+    color: "#fff",
+    borderRadius: "50%",
   },
 }));
