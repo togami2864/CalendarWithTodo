@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useStyles } from "../Todo/styles";
 import Event from "./Event";
@@ -6,14 +6,11 @@ import Event from "./Event";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 
+import AppContext from "../../context/AppContext";
+
 const EventTable = () => {
   const styles = useStyles();
-  const events = [
-    { id: 1, title: "テスト", body: "test" },
-    { id: 2, title: "テスト", body: "test" },
-    { id: 3, title: "テスト", body: "test" },
-    { id: 4, title: "テスト", body: "test" },
-  ];
+  const { state, dispatch } = useContext(AppContext);
 
   return (
     <div className="container-lg">
@@ -28,7 +25,7 @@ const EventTable = () => {
           </tr>
         </thead>
         <tbody>
-          {events.map((event, index) => {
+          {state.map((event, index) => {
             return <Event event={event} key={index} />;
           })}
         </tbody>
