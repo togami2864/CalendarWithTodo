@@ -10,9 +10,22 @@ import EventTable from "./components/Todo/EventTable";
 // import { formatMonth } from "./services/calendar";
 import reducer from "./reducers/todo";
 import AppContext from "./context/AppContext";
+import { Task, Calendar } from "./Types/Types";
 
-const App: React.FC = () => {
-  const [state, dispatch] = useReducer(reducer, []);
+type States = {
+  events: Task[];
+  calendar: Calendar;
+};
+
+const App: React.FC<{}> = () => {
+  const initialState: States = {
+    events: [],
+    calendar: {
+      year: 2020,
+      month: 5,
+    },
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <NavigationBar />

@@ -9,7 +9,12 @@ import {
   REVERSE_CHECKED,
 } from "../actions/index";
 
-const todos = (state = [], action) => {
+import { Task, CalendarAction } from "../Types/Types";
+
+const todos: (action: CalendarAction, state?: Task[]) => Task[] = (
+  action,
+  state = []
+) => {
   switch (action.type) {
     case CREATE_EVENT:
       const todo = {
