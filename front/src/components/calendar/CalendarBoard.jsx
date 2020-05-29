@@ -6,6 +6,7 @@ import { useStyles } from "./styles.js";
 import CalendarElement from "./CalendarElement";
 import { createCalendar } from "../../services/calendar";
 import AppContext from "../../context/AppContext";
+import { OPEN_DIALOG } from "../../actions/index";
 
 import dayjs from "dayjs";
 import "dayjs/locale/ja";
@@ -15,8 +16,11 @@ const days = ["日", "月", "火", "水", "木", "金", "土"];
 
 const CalendarBoard = () => {
   const styles = useStyles();
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const calendar = createCalendar(state.calendar);
+  const openDialog = () => {
+    dispatch({ type: OPEN_DIALOG });
+  };
   return (
     <div className={styles.container}>
       <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">
@@ -34,7 +38,7 @@ const CalendarBoard = () => {
           </li>
         ))}
         {calendar.map((c) => (
-          <li key={c.toISOString()}>
+          <li key={c.toISOString()} onClick={openDialog}>
             <CalendarElement day={c} />
           </li>
         ))}

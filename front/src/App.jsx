@@ -6,27 +6,25 @@ import CalendarBoard from "./components/Calendar/CalendarBoard";
 import NavigationBar from "./components/Navigation/NavigationBar";
 import EventForm from "./components/Todo/EventForm";
 import EventTable from "./components/Todo/EventTable";
+import DialogBoard from "./components/Dialog/DialogBoard";
 
 import { formatMonth } from "./services/calendar";
 import reducer from "./reducers";
 import AppContext from "./context/AppContext";
-
-// type States = {
-//   events: Task[];
-//   calendar: Calendar;
-// };
 
 const App = () => {
   const day = dayjs();
   const initialState = {
     events: [],
     calendar: formatMonth(day),
+    isDialogOpen: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <NavigationBar />
       <CalendarBoard />
+      <DialogBoard />
       <div className="container-fluid">
         <EventForm />
         <EventTable />

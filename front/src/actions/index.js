@@ -9,3 +9,7 @@ export const DELETE_ALL_EVENTS = "DELETE_ALL_EVENTS";
 export const CREATE_EVENT = "CREATE_EVENT";
 
 export const REVERSE_CHECKED = "REVERSE_CHECKED";
+
+export const OPEN_DIALOG = "TOGGLE_DIALOG";
+
+export const CLOSE_DIALOG = "CLOSE_DIALOG";

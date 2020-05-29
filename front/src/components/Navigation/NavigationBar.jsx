@@ -31,7 +31,7 @@ const NavigationBar = () => {
         variant="h5"
         component="h1"
       >
-        カレンダー
+        Calendar
       </Typography>
       <IconButton size="small" onClick={prevMonth}>
         <ArrowBackIos />
