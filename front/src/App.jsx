@@ -7,10 +7,9 @@ import NavigationBar from "./components/Navigation/NavigationBar";
 import EventForm from "./components/Todo/EventForm";
 import EventTable from "./components/Todo/EventTable";
 
-// import { formatMonth } from "./services/calendar";
+import { formatMonth } from "./services/calendar";
 import reducer from "./reducers";
 import AppContext from "./context/AppContext";
-// import { Task, Calendar } from "./Types/Types";
 
 // type States = {
 //   events: Task[];
@@ -18,12 +17,10 @@ import AppContext from "./context/AppContext";
 // };
 
 const App = () => {
+  const day = dayjs();
   const initialState = {
     events: [],
-    calendar: {
-      year: 2020,
-      month: 5,
-    },
+    calendar: formatMonth(day),
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
