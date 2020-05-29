@@ -11,7 +11,7 @@ const AddScheduleDialog = () => {
   };
   return (
     <Dialog
-      open={state.isDialogOpen}
+      open={state.toggleDialog.isDialogOpen}
       onClose={closeDialog}
       maxWidth="xs"
       fullWidth

@@ -2,6 +2,6 @@ import { combineReducers } from "redux";
 
 import events from "./events";
 import calendar from "./calendar";
-import isDialogOpen from "./dialog";
+import toggleDialog from "./toggleDialog";
 
-export default combineReducers({ events, calendar, isDialogOpen });
+export default combineReducers({ events, calendar, toggleDialog });

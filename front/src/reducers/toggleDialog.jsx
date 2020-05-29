@@ -2,7 +2,7 @@ import React from "react";
 
 import { OPEN_DIALOG, CLOSE_DIALOG } from "../actions/index";
 
-const isDialogOpen = (state = {}, action) => {
+const toggleDialog = (state = {}, action) => {
   switch (action.type) {
     case OPEN_DIALOG:
       return { ...state, isDialogOpen: true };
@@ -13,4 +13,4 @@ const isDialogOpen = (state = {}, action) => {
   }
 };
 
-export default isDialogOpen;
+export default toggleDialog;

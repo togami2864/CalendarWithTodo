@@ -17,7 +17,9 @@ const App = () => {
   const initialState = {
     events: [],
     calendar: formatMonth(day),
-    isDialogOpen: false,
+    toggleDialog: {
+      isDialogOpen: false,
+    },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
