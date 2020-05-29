@@ -11,19 +11,18 @@ import {
 
 // import { Task, CalendarAction } from "../Types/Types";
 
-const todos = (action, state = []) => {
+const events = (state = [], action) => {
   switch (action.type) {
     case CREATE_EVENT:
-      const todo = {
+      const event = {
         title: action.title,
         body: action.body,
         isChecked: action.isChecked,
         count: action.count,
       };
-      // const id = shortid.generate;
       const length = state.length;
       const id = length === 0 ? 1 : state[length - 1].id + 1;
-      return [...state, { id, ...todo }];
+      return [...state, { id, ...event }];
 
     case DELETE_EVENT:
       state.map((event) =>
@@ -51,4 +50,4 @@ const todos = (action, state = []) => {
   }
 };
 
-export default todos;
+export default events;

@@ -8,7 +8,7 @@ import EventForm from "./components/Todo/EventForm";
 import EventTable from "./components/Todo/EventTable";
 
 // import { formatMonth } from "./services/calendar";
-import reducer from "./reducers/todo";
+import reducer from "./reducers";
 import AppContext from "./context/AppContext";
 // import { Task, Calendar } from "./Types/Types";
 

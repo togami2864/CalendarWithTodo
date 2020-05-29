@@ -11,6 +11,7 @@ import AppContext from "../../context/AppContext";
 const EventTable = () => {
   const styles = useStyles();
   const { state, dispatch } = useContext(AppContext);
+  console.log(state.events);
 
   return (
     <div className="container-lg">

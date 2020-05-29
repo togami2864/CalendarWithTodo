@@ -8,6 +8,8 @@ const calendar = (state = [], action) => {
       return state;
     case SCHEDULE_PREV_MONTH:
       return state;
+    default:
+      return state;
   }
 };
 

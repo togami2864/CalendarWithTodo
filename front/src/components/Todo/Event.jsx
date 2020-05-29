@@ -17,7 +17,6 @@ const Event = ({ event }) => {
   const styles = useStyles();
   const { dispatch } = useContext(AppContext);
   const id = event.id;
-  // console.log(event.count);
 
   const deleteEvent = (e) => {
     e.preventDefault();
