@@ -6,24 +6,24 @@ import { Typography } from "@material-ui/core";
 import { useStyles } from "./styles.js";
 import { isSameDay, isSameMonth, isFirstDay } from "../../services/calendar";
 
-type Props = {
-  day: dayjs.Dayjs;
-};
+// type Props = {
+//   day: dayjs.Dayjs;
+// };
 
-const CalendarElement: React.FC<Props> = ({ day }) => {
+const CalendarElement = ({ day }) => {
   const styles = useStyles();
 
   const today = dayjs(); //現在の日付を取得
 
   //今月以外グレーダウン
-  const isCurrentMonth: boolean = isSameMonth(day, today);
+  const isCurrentMonth = isSameMonth(day, today);
   const textColor = isCurrentMonth ? "textPrimary" : "textSecondary";
 
   //１日のみ月情報も
   const format = isFirstDay(day) ? "M月D日" : "D";
 
   //当日かどうかの判断
-  const isToday: boolean = isSameDay(day, today);
+  const isToday = isSameDay(day, today);
 
   return (
     <div className={styles.element}>

@@ -12,20 +12,20 @@ dayjs.locale("ja");
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
 const createCalendar = () => {
-  const firstDay: dayjs.Dayjs = dayjs().startOf("month"); //５月1日についての全てのデータ
-  const firstDayIndex: number = firstDay.day(); //5月なら金曜日→５ *日曜が0 土曜は6
+  const firstDay = dayjs().startOf("month"); //５月1日についての全てのデータ
+  const firstDayIndex = firstDay.day(); //5月なら金曜日→５ *日曜が0 土曜は6
   return Array(35)
     .fill(0)
     .map((_, i) => {
-      const diffFromFirstDay: number = i - firstDayIndex;
-      const day: dayjs.Dayjs = firstDay.add(diffFromFirstDay, "day");
+      const diffFromFirstDay = i - firstDayIndex;
+      const day = firstDay.add(diffFromFirstDay, "day");
       return day;
     });
 };
 
 const calendar = createCalendar();
 
-const CalendarBoard: React.FC = () => {
+const CalendarBoard = () => {
   const styles = useStyles();
   return (
     <div className={styles.container}>

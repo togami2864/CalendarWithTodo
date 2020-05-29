@@ -18,14 +18,14 @@ const EventForm = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  const addEvent: (e: any) => void = (e) => {
+  const addEvent = (e) => {
     e.preventDefault();
     dispatch({ type: CREATE_EVENT, title, body, isChecked: false, count: 0 });
     setTitle("");
     setBody("");
   };
 
-  const deleteAllEvent: (e: any) => void = (e) => {
+  const deleteAllEvent = (e) => {
     e.preventDefault();
     const result = window.confirm(
       "全てのイベントを本当に削除しても良いですか？"

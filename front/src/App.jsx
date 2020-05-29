@@ -10,15 +10,15 @@ import EventTable from "./components/Todo/EventTable";
 // import { formatMonth } from "./services/calendar";
 import reducer from "./reducers/todo";
 import AppContext from "./context/AppContext";
-import { Task, Calendar } from "./Types/Types";
+// import { Task, Calendar } from "./Types/Types";
 
-type States = {
-  events: Task[];
-  calendar: Calendar;
-};
+// type States = {
+//   events: Task[];
+//   calendar: Calendar;
+// };
 
-const App: React.FC<{}> = () => {
-  const initialState: States = {
+const App = () => {
+  const initialState = {
     events: [],
     calendar: {
       year: 2020,
