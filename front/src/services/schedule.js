@@ -1,8 +1,8 @@
 import { isSameDay } from "./calendar";
 
-export const setSchedule = (calendar, schedules) => {
-  calendar.map((c) => ({
+export const setSchedule = (calendar, events) => {
+  return calendar.map((c) => ({
     date: c,
-    schedules: schedules.filter((e) => isSameDay(e.date, c)),
+    events: events.filter((e) => isSameDay(e.date, c)),
   }));
 };

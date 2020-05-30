@@ -17,6 +17,7 @@ const events = (state = [], action) => {
         body: action.body,
         isChecked: action.isChecked,
         count: action.count,
+        date: action.date,
       };
       const length = state.length;
       const id = length === 0 ? 1 : state[length - 1].id + 1;

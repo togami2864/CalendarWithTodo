@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useState, useContext, useReducer } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import dayjs from "dayjs";
 
@@ -16,14 +16,14 @@ const App = () => {
   const day = dayjs();
   const initialState = {
     events: [
-      {
-        title: "test",
-        body: "test",
-        id: 1,
-        isChecked: false,
-        count: 0,
-        date: dayjs(),
-      },
+      // {
+      //   title: "test",
+      //   body: "test",
+      //   id: 1,
+      //   isChecked: false,
+      //   count: 0,
+      //   date: dayjs(),
+      // },
     ],
     calendar: formatMonth(day),
     toggleDialog: {
@@ -31,8 +31,9 @@ const App = () => {
     },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [date, setDate] = useState({});
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <AppContext.Provider value={{ state, dispatch, date, setDate }}>
       <NavigationBar />
       <CalendarBoard />
       <DialogBoard />

@@ -14,13 +14,20 @@ import AppContext from "../../context/AppContext";
 
 const EventForm = () => {
   const styles = useStyles();
-  const { state, dispatch } = useContext(AppContext);
+  const { state, dispatch, date } = useContext(AppContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
   const addEvent = (e) => {
     e.preventDefault();
-    dispatch({ type: CREATE_EVENT, title, body, isChecked: false, count: 0 });
+    dispatch({
+      type: CREATE_EVENT,
+      title,
+      body,
+      isChecked: false,
+      count: 0,
+      date: date,
+    });
     setTitle("");
     setBody("");
   };

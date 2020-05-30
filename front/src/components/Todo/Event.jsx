@@ -1,17 +1,11 @@
 import React, { useContext } from "react";
 
-// import { Task } from "../../Types/Types";
-
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 import { useStyles } from "../Todo/styles";
 import { DELETE_EVENT, REVERSE_CHECKED } from "../../actions/index";
 import AppContext from "../../context/AppContext";
-
-// type Props = {
-//   event: Task,
-// };
 
 const Event = ({ event }) => {
   const styles = useStyles();
