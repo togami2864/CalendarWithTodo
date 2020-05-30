@@ -15,7 +15,16 @@ import AppContext from "./context/AppContext";
 const App = () => {
   const day = dayjs();
   const initialState = {
-    events: [],
+    events: [
+      {
+        title: "test",
+        body: "test",
+        id: 1,
+        isChecked: false,
+        count: 0,
+        date: dayjs(),
+      },
+    ],
     calendar: formatMonth(day),
     toggleDialog: {
       isDialogOpen: false,
@@ -27,10 +36,6 @@ const App = () => {
       <NavigationBar />
       <CalendarBoard />
       <DialogBoard />
-      <div className="container-fluid">
-        <EventForm />
-        <EventTable />
-      </div>
     </AppContext.Provider>
   );
 };

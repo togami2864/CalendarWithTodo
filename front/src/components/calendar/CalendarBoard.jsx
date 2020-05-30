@@ -5,6 +5,7 @@ import { useStyles } from "./styles.js";
 
 import CalendarElement from "./CalendarElement";
 import { createCalendar } from "../../services/calendar";
+import { setSchedule } from "../../services/schedule";
 import AppContext from "../../context/AppContext";
 import { OPEN_DIALOG } from "../../actions/index";
 
@@ -21,6 +22,10 @@ const CalendarBoard = () => {
   const openDialog = () => {
     dispatch({ type: OPEN_DIALOG });
   };
+  // console.log(state.calendar);
+  // console.log(state.events[0].date);
+  // console.log(calendar);
+  // console.log(days);
   return (
     <div className={styles.container}>
       <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">

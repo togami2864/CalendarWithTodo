@@ -1,4 +1,8 @@
 import React, { useContext } from "react";
+
+import EventForm from "../Todo/EventForm";
+import EventTable from "../Todo/EventTable";
+
 import { Dialog, DialogContent } from "@material-ui/core";
 import { CLOSE_DIALOG } from "../../actions/index";
 import AppContext from "../../context/AppContext";
@@ -13,10 +17,15 @@ const AddScheduleDialog = () => {
     <Dialog
       open={state.toggleDialog.isDialogOpen}
       onClose={closeDialog}
-      maxWidth="xs"
+      maxWidth="xl"
       fullWidth
     >
-      <DialogContent>dialog</DialogContent>
+      <DialogContent>
+        <div className="container-fluid">
+          <EventForm />
+          <EventTable />
+        </div>
+      </DialogContent>
     </Dialog>
   );
 };
