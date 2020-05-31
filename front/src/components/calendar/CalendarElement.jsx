@@ -5,8 +5,9 @@ import { Typography } from "@material-ui/core";
 
 import { useStyles } from "./styles.js";
 import { isSameDay, isSameMonth, isFirstDay } from "../../services/calendar";
-import { OPEN_DIALOG } from "../../actions/index";
 import AppContext from "../../context/AppContext";
+
+import { OPEN_DIALOG } from "../../actions/index";
 
 const CalendarElement = ({ day }) => {
   const styles = useStyles();

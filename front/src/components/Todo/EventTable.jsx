@@ -10,8 +10,9 @@ import AppContext from "../../context/AppContext";
 
 const EventTable = () => {
   const styles = useStyles();
-  const { state, dispatch } = useContext(AppContext);
-
+  const { state, dispatch, date, calendar } = useContext(AppContext);
+  const events = calendar.filter((e) => e.events.length !== 0);
+  console.log(events);
   return (
     <div className="container-lg">
       <h4>Events</h4>
@@ -19,13 +20,12 @@ const EventTable = () => {
         <thead>
           <tr>
             <th></th>
-            <th>Index</th>
             <th>Title</th>
             <th>body</th>
           </tr>
         </thead>
         <tbody>
-          {state.events.map((event, index) => {
+          {events.map((event, index) => {
             return <Event event={event} key={index} />;
           })}
         </tbody>

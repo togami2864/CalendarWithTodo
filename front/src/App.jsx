@@ -11,20 +11,13 @@ import DialogBoard from "./components/Dialog/DialogBoard";
 import { formatMonth } from "./services/calendar";
 import reducer from "./reducers";
 import AppContext from "./context/AppContext";
+import { setSchedule } from "./services/schedule";
+import { createCalendar } from "./services/calendar";
 
 const App = () => {
   const day = dayjs();
   const initialState = {
-    events: [
-      // {
-      //   title: "test",
-      //   body: "test",
-      //   id: 1,
-      //   isChecked: false,
-      //   count: 0,
-      //   date: dayjs(),
-      // },
-    ],
+    events: [],
     calendar: formatMonth(day),
     toggleDialog: {
       isDialogOpen: false,
@@ -32,8 +25,9 @@ const App = () => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const [date, setDate] = useState({});
+  const calendar = setSchedule(createCalendar(state.calendar), state.events);
   return (
-    <AppContext.Provider value={{ state, dispatch, date, setDate }}>
+    <AppContext.Provider value={{ state, dispatch, date, setDate, calendar }}>
       <NavigationBar />
       <CalendarBoard />
       <DialogBoard />

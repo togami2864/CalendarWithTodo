@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -9,8 +9,10 @@ import AppContext from "../../context/AppContext";
 
 const Event = ({ event }) => {
   const styles = useStyles();
-  const { dispatch } = useContext(AppContext);
-  const id = event.id;
+  const { dispatch, date } = useContext(AppContext);
+  const [id, setId] = useState(1);
+  const items = event.events;
+  console.log(items);
 
   const deleteEvent = (e) => {
     e.preventDefault();
@@ -26,25 +28,31 @@ const Event = ({ event }) => {
     dispatch({ type: REVERSE_CHECKED, id });
   };
 
-  return (
-    <tr>
-      <td>
-        <input type="checkbox" onChange={reverseChecked} />
-      </td>
-      <td>{event.id}</td>
-      <td>{event.title}</td>
-      <td>{event.body}</td>
-      <td>
-        <Button
-          startIcon={<DeleteIcon />}
-          color="secondary"
-          variant="contained"
-          onClick={deleteEvent}
-        >
-          Delete
-        </Button>
-      </td>
-    </tr>
-  );
+  return items.map((e) => {
+    if (e.date === date) {
+      console.log("aaa");
+      return (
+        <>
+          <tr>
+            <td>
+              <input type="checkbox" onChange={reverseChecked} />
+            </td>
+            <td>{e.title}</td>
+            <td>{e.body}</td>
+            <td>
+              <Button
+                startIcon={<DeleteIcon />}
+                color="secondary"
+                variant="contained"
+                onClick={deleteEvent}
+              >
+                Delete
+              </Button>
+            </td>
+          </tr>
+        </>
+      );
+    }
+  });
 };
 export default Event;
