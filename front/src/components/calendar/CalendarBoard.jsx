@@ -38,7 +38,7 @@ const CalendarBoard = () => {
           </li>
         ))}
         {calendar.map((c) => (
-          <li key={c.date.toISOString()} onClick={() => setDate(c.date)}>
+          <li key={c.date.toISOString()}>
             <CalendarElement day={c.date} />
           </li>
         ))}

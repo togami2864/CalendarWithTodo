@@ -14,6 +14,9 @@ import AppContext from "./context/AppContext";
 import { setSchedule } from "./services/schedule";
 import { createCalendar } from "./services/calendar";
 
+import DayjsUtils from "@date-io/dayjs";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+
 const App = () => {
   const day = dayjs();
   const initialState = {
@@ -24,13 +27,14 @@ const App = () => {
     },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [date, setDate] = useState({});
   const calendar = setSchedule(createCalendar(state.calendar), state.events);
   return (
-    <AppContext.Provider value={{ state, dispatch, date, setDate, calendar }}>
-      <NavigationBar />
-      <CalendarBoard />
-      <DialogBoard />
+    <AppContext.Provider value={{ state, dispatch, calendar }}>
+      <MuiPickersUtilsProvider utils={DayjsUtils}>
+        <NavigationBar />
+        <CalendarBoard />
+        <DialogBoard />
+      </MuiPickersUtilsProvider>
     </AppContext.Provider>
   );
 };
