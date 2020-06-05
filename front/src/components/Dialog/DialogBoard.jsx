@@ -40,6 +40,9 @@ const AddScheduleDialog = () => {
     e.preventDefault();
     dispatch({ type: CREATE_EVENT, title, location, description, date });
     alert("保存しました");
+    setTitle("");
+    setLocation("");
+    setDescription("");
   };
   const closeDialog = () => {
     dispatch({ type: CLOSE_DIALOG });

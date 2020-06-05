@@ -3,15 +3,17 @@ import React, { useContext } from "react";
 import dayjs from "dayjs";
 import { Typography } from "@material-ui/core";
 
+import Schedules from "../schedules/Schedules";
+
 import { useStyles } from "./styles.js";
 import { isSameDay, isSameMonth, isFirstDay } from "../../services/calendar";
 import AppContext from "../../context/AppContext";
 
 import { OPEN_DIALOG } from "../../actions/index";
 
-const CalendarElement = ({ day }) => {
+const CalendarElement = ({ day, events }) => {
   const styles = useStyles();
-  const { dispatch } = useContext(AppContext);
+  const { dispatch, calendar } = useContext(AppContext);
 
   const today = dayjs(); //現在の日付を取得
 
@@ -28,6 +30,7 @@ const CalendarElement = ({ day }) => {
   const openDialog = () => {
     dispatch({ type: OPEN_DIALOG });
   };
+  console.log(calendar);
 
   return (
     <div className={styles.element} onClick={openDialog}>
@@ -42,6 +45,13 @@ const CalendarElement = ({ day }) => {
           {day.format(format)}
         </span>
       </Typography>
+      <div>
+        {events.map((e) => {
+          if (events.length !== 0) {
+            return <Schedules event={e} />;
+          }
+        })}
+      </div>
     </div>
   );
 };

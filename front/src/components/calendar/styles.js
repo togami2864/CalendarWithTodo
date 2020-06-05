@@ -30,4 +30,8 @@ export const useStyles = makeStyles(() => ({
     color: "#fff",
     borderRadius: "50%",
   },
+  schedules: {
+    overflow: "scroll",
+    height: "calc(18vh - 40px)",
+  },
 }));

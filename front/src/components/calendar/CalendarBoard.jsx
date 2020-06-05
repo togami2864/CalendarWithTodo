@@ -39,7 +39,7 @@ const CalendarBoard = () => {
         ))}
         {calendar.map((c) => (
           <li key={c.date.toISOString()}>
-            <CalendarElement day={c.date} />
+            <CalendarElement day={c.date} events={c.events} />
           </li>
         ))}
       </GridList>
