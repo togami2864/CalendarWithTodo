@@ -12,4 +12,15 @@ export const useStyles = makeStyles(() => ({
     cursor: "pointer",
     backgroundColor: "rgb(121, 134, 203)",
   },
+  closeButton: {
+    textAlign: "right",
+  },
+  box: {
+    backgroundColor: "rgb(121, 134, 203)",
+    width: "16px",
+    height: "16px",
+    display: "block",
+    marginLeft: "6px",
+    borderRadius: "4px",
+  },
 }));

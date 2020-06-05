@@ -30,7 +30,6 @@ const CalendarElement = ({ day, events }) => {
   const openDialog = () => {
     dispatch({ type: OPEN_DIALOG });
   };
-  console.log(calendar);
 
   return (
     <div className={styles.element} onClick={openDialog}>

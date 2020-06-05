@@ -17,7 +17,7 @@ const days = ["日", "月", "火", "水", "木", "金", "土"];
 
 const CalendarBoard = () => {
   const styles = useStyles();
-  const { state, dispatch, date, setDate, calendar } = useContext(AppContext);
+  const { state, dispatch, calendar } = useContext(AppContext);
   const openDialog = () => {
     dispatch({ type: OPEN_DIALOG });
   };

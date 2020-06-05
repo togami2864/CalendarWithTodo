@@ -13,3 +13,9 @@ export const REVERSE_CHECKED = "REVERSE_CHECKED";
 export const OPEN_DIALOG = "TOGGLE_DIALOG";
 
 export const CLOSE_DIALOG = "CLOSE_DIALOG";
+
+export const OPEN_DETAIL = "OPEN_DETAIL";
+
+export const CLOSE_DETAIL = "CLOSE_DETAIL";
+
+export const SET_EVENTS_TO_ITEM = "SET_EVENTS_TO_ITEM";

@@ -23,7 +23,11 @@ import {
 } from "@material-ui/icons";
 import { DatePicker } from "@material-ui/pickers";
 
-import { CLOSE_DIALOG, CREATE_EVENT } from "../../actions/index";
+import {
+  CLOSE_DIALOG,
+  CREATE_EVENT,
+  SET_EVENTS_TO_ITEM,
+} from "../../actions/index";
 import AppContext from "../../context/AppContext";
 import { useStyles } from "./styles";
 
@@ -39,7 +43,7 @@ const AddScheduleDialog = () => {
   const addEvent = (e) => {
     e.preventDefault();
     dispatch({ type: CREATE_EVENT, title, location, description, date });
-    alert("保存しました");
+    dispatch({ type: SET_EVENTS_TO_ITEM, title, location, description, date });
     setTitle("");
     setLocation("");
     setDescription("");

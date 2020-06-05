@@ -7,6 +7,7 @@ import NavigationBar from "./components/Navigation/NavigationBar";
 import EventForm from "./components/Todo/EventForm";
 import EventTable from "./components/Todo/EventTable";
 import DialogBoard from "./components/Dialog/DialogBoard";
+import Detail from "./components/schedules/Detail";
 
 import { formatMonth } from "./services/calendar";
 import reducer from "./reducers";
@@ -25,6 +26,10 @@ const App = () => {
     toggleDialog: {
       isDialogOpen: false,
     },
+    detail: {
+      isDetailOpen: false,
+      items: null,
+    },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const calendar = setSchedule(createCalendar(state.calendar), state.events);
@@ -34,6 +39,7 @@ const App = () => {
         <NavigationBar />
         <CalendarBoard />
         <DialogBoard />
+        <Detail />
       </MuiPickersUtilsProvider>
     </AppContext.Provider>
   );
