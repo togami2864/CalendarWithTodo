@@ -4,8 +4,6 @@ import dayjs from "dayjs";
 
 import CalendarBoard from "./components/Calendar/CalendarBoard";
 import NavigationBar from "./components/Navigation/NavigationBar";
-import EventForm from "./components/Todo/EventForm";
-import EventTable from "./components/Todo/EventTable";
 import DialogBoard from "./components/Dialog/DialogBoard";
 import Detail from "./components/schedules/Detail";
 
@@ -28,7 +26,7 @@ const App = () => {
     },
     detail: {
       isDetailOpen: false,
-      items: null,
+      items: [],
     },
   };
   const [state, dispatch] = useReducer(reducer, initialState);

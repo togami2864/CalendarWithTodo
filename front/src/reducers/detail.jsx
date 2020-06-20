@@ -15,7 +15,7 @@ const detail = (state = [], action) => {
         location: action.location,
         description: action.description,
       };
-      return { ...state, item: { ...event } };
+      return { ...state, ...event };
     case OPEN_DETAIL:
       return { ...state, isDetailOpen: true };
     case CLOSE_DETAIL:

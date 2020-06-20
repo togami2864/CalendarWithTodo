@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import AppContext from "../../context/AppContext";
-import { CLOSE_DETAIL } from "../../actions/index";
+import { CLOSE_DETAIL, DELETE_EVENT } from "../../actions/index";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +10,12 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core";
-import { Close, LocationOnOutlined, NotesOutlined } from "@material-ui/icons";
+import {
+  Close,
+  LocationOnOutlined,
+  NotesOutlined,
+  DeleteOutlineOutlined,
+} from "@material-ui/icons";
 import { useStyles } from "./styles";
 
 const spacer = (top, bottom) => ({
@@ -20,9 +25,14 @@ const spacer = (top, bottom) => ({
 const Detail = () => {
   const styles = useStyles();
   const { state, dispatch } = useContext(AppContext);
+  console.log(state.detail);
 
   const closeDetail = () => {
     dispatch({ type: CLOSE_DETAIL });
+  };
+
+  const deleteEvent = () => {
+    dispatch({ type: DELETE_EVENT });
   };
 
   return (
@@ -34,6 +44,9 @@ const Detail = () => {
     >
       <DialogActions>
         <div className={styles.closeButton}>
+          <IconButton size="small">
+            <DeleteOutlineOutlined />
+          </IconButton>
           <IconButton onClick={closeDetail} size="small">
             <Close />
           </IconButton>

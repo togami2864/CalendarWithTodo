@@ -2,9 +2,6 @@ import React, { useState, useContext } from "react";
 
 import dayjs from "dayjs";
 
-import EventForm from "../Todo/EventForm";
-import EventTable from "../Todo/EventTable";
-
 import {
   Dialog,
   DialogContent,
